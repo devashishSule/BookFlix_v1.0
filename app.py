@@ -18,7 +18,7 @@ def index():
             'last name':lastName, 
             'email':email
         })
-        return redirect(url_for('index'))
+        return render_template('verified.html')
     all_info = register.find()
     return render_template('index.html', register=all_info)
 
