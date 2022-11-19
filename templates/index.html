@@ -1,21 +1,11 @@
 {% extends 'base.html' %} {% block head%}
 <title>BookFlix</title>
-{%endblock%} {% block body %}
-<h1>Register</h1>
-<div class="content">
-    <form method="post">
-        <p>
-            <b><label for="content1">First Name</label></b><br>
-            <input type="text" name="content1" placeholder="Enter your first name"></input><br><br>
-            <b><label for="content2">Last Name</label></b><br>
-            <input type="text" name="content2" placeholder="Enter your last name"></input>
-        </p>
-        <p>
-            <b><label for="email">Email</label></b><br>
-            <input type="text" name="email" placeholder="Enter your email address"></input><br>
-        </p>
-        <button type="submit">Submit</button>
-    </form>
-</div>
-</form>
+{% endblock %} {% block body %}
+<h1>Homepage</h1><br>
+<a href="./register.html">
+    <h2>Register</h2>
+</a>
+<a href="./login.html">
+    <h2>Login</h2>
+</a>
 {% endblock %}

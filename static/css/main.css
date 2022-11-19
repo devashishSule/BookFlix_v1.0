@@ -1,5 +1,12 @@
 body {
     font-family: sans-serif;
-    padding: 5%;
+    padding: 2%;
     margin: 10;
+}
+
+.content {
+    padding: 2%;
+    margin: 10;
+    border: 2px ridge;
+    border-radius: 10px;
 }
