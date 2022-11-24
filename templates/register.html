@@ -1,8 +1,37 @@
 {% extends 'base.html'%} {%block head%}
 <title>Register</title>
 {%endblock%} {%block body%}
+<script>
+    function show1() {
+        var x = document.getElementById("pass1");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    function show2() {
+        var y = document.getElementById("pass2");
+        if (y.type === "password") {
+            y.type = "text";
+        } else {
+            y.type = "password";
+        }
+    }
+
+    function verify() {
+        var a = document.getElementsByName("password1");
+        var b = document.getElementsByName("password2");
+        if (a == b) {
+            return alert('Registeration Successful...');
+        } else if (a != b) {
+            return alert('Password entered does not match. Please fill out again')
+        }
+    }
+</script>
 <div class="content">
-    <form method="post">
+    <form method="post" onsubmit="return checkPassword(this)">
         <h1>Register</h1>
         <p>
             <b><label for="content1">First Name:</label></b><br>
@@ -12,12 +41,17 @@
             <b><label for="email">Email:</label></b><br>
             <input type="text" name="email" required placeholder="email"></input><br><br>
             <b><label for="password">Password:</label></b><br>
-            <input type="password" name="password" required placeholder="password"></input><br><br>
+            <input type="password" name="password1" required placeholder="set password" id="pass1"></input><br>
+            <input type="checkbox" onclick="show1()">Show Password <br><br>
             <b><label for="password">Confirm Password:</label></b><br>
-            <input type="password" name="password" required placeholder="password"></input><br>
+            <input type="password" name="password2" required placeholder="verify password" id="pass2"></input><br>
+            <input type="checkbox" onclick="show2()">Show Password <br><br>
+            <b><label for="security">Security Question:</label></b><br>
+            <input type="text" name="security" required placeholder="Enter your favourite subject"></input><br>
+            <label style="font-size:small;color:red">*When you forget your password, this will work as a recovery option.</label><br>
         </p>
+        <button type="submit" class="button button_general" onclick="verify()">Register</button>
 
-        <button type="submit">Register</button>
     </form>
 </div>
 </form>
