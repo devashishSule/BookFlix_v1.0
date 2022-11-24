@@ -1,37 +1,8 @@
 {% extends 'base.html'%} {%block head%}
 <title>Register</title>
 {%endblock%} {%block body%}
-<script>
-    function show1() {
-        var x = document.getElementById("pass1");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-
-    function show2() {
-        var y = document.getElementById("pass2");
-        if (y.type === "password") {
-            y.type = "text";
-        } else {
-            y.type = "password";
-        }
-    }
-
-    function verify() {
-        var a = document.getElementsByName("password1");
-        var b = document.getElementsByName("password2");
-        if (a == b) {
-            return alert('Registeration Successful...');
-        } else if (a != b) {
-            return alert('Password entered does not match. Please fill out again')
-        }
-    }
-</script>
 <div class="content">
-    <form method="post" onsubmit="return checkPassword(this)">
+    <form method="post">
         <h1>Register</h1>
         <p>
             <b><label for="content1">First Name:</label></b><br>
@@ -54,5 +25,6 @@
 
     </form>
 </div>
-</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../static/css/public/register.js" type="text/javascript"></script>
 {%endblock%}

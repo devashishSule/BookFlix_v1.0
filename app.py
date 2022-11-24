@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect
+# from response import response
 from pymongo import MongoClient
 # from flask_mail import Mail,Message
 
@@ -13,7 +14,7 @@ app = Flask(__name__)
 
 client = MongoClient("mongodb+srv://Devashish:Devashish2002@cluster0.wurmd5z.mongodb.net/?retryWrites=true&w=majority")
 db = client.BookFlix_db
-user_info = db.register_dets
+user_info = db.user_info
 
 @app.route('/')
 def index():
@@ -51,19 +52,27 @@ def register():
     all_info = user_info.find()
     return render_template('register.html', user_info=all_info)
 
-@app.route('/login.html')
+@app.route('/login.html', methods=('GET', 'POST') )
 def login():
-    if request.method=="GET":
+    if request.method=="POST":
         email = request.form['email']
         password = request.form['password']
-        verify_email = request.get('email')
-        verify_pass = request.get('password')
-        if email == verify_email and password == verify_pass:
-            return "Welcome %s"%email
+        verify_user = user_info.find_one({
+            'email':email,
+            'password':password
+        })
+        if verify_user != None:
+            # Response.setCookie('test',6969,10) 
+            return redirect('/user_dashboard.html')
         else:
             return "Data not found..."
     return render_template('login.html')
 
+@app.route('/user_dashboard.html', methods=('GET', 'POST'))
+def user_dashboard():
+    return render_template('user_dashboard.html')
+    print('Hello') 
+    
 if __name__ == "__main__":
     app.run(debug=True)
     
