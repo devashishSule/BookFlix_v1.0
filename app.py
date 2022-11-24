@@ -26,6 +26,7 @@ def register():
     if request.method=='POST':
         firstName = request.form['content1']
         lastName = request.form['content2']
+        username = request.form['username']
         email = request.form['email']
         password1 = request.form['password1']
         password2 = request.form['password2']
@@ -33,7 +34,8 @@ def register():
         if password1==password2: 
             user_info.insert_one({
                 'first name':firstName, 
-                'last name':lastName, 
+                'last name':lastName,
+                'username':username, 
                 'email':email,
                 'password':password1,
                 'security_question':security_question
@@ -55,10 +57,10 @@ def register():
 @app.route('/login.html', methods=('GET', 'POST') )
 def login():
     if request.method=="POST":
-        email = request.form['email']
+        username = request.form['username']
         password = request.form['password']
         verify_user = user_info.find_one({
-            'email':email,
+            'username':username,
             'password':password
         })
         if verify_user != None:

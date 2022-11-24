@@ -1,15 +1,18 @@
 {% extends 'base.html'%} {% block head %}
 <title>Login</title>
 {% endblock %} {%block body%}
-<form method="post">
-    <div class="content">
-        <h1>Log In</h1>
-        <b><label for="email">Email:</label></b><br>
-        <input type="text" name="email" required placeholder="email"></input><br><br>
-        <b><label for="password">Password:</label></b><br>
-        <input type="text" name="password" required placeholder="password"></input><br><br>
-        <button type="submit" class="button button_general">Login</button>
-    </div>
+<div class="content">
+    <form method="post">
 
-</form>
+        <h1>Log In</h1>
+        <b><label for="email">Username:</label></b><br>
+        <input type="text" name="username" required placeholder="registered username"></input><br><br>
+        <b><label for="password">Password:</label></b><br>
+        <input type="password" name="password" id="pass" required placeholder="password"></input><br>
+        <input type="checkbox" onclick="show()">Show Password <br><br>
+        <button type="submit" class="button button_general">Login</button>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../static/css/public/login.js" type="text/javascript"></script>
 {% endblock %}
