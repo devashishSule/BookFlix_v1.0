@@ -45,7 +45,7 @@ def register():
             #     sender='joemama@hotline.com',
             #     recipients=[email]
             # )
-            # msg.body = "Thank You for creating an account in BookFlix."
+            # msg.body = "Thank You for creating an account in BookFlix. We will keep you updated."
             # mail.send(msg)
             return render_template('verified.html')
         else:
@@ -73,7 +73,7 @@ def login():
 @app.route('/user_dashboard.html', methods=('GET', 'POST'))
 def user_dashboard():
     return render_template('user_dashboard.html')
-    print('Hello') 
+    # print('Hello') 
     
 if __name__ == "__main__":
     app.run(debug=True)
