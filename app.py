@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request, url_for, redirect
 # from response import response
 from pymongo import MongoClient
-from flask_mail import Mail,Message
+# from flask_mail import Mail,Message
 
 app = Flask(__name__)
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'sule.devashish@gmail.com'
-app.config['MAIL_PASSWORD'] = 'pkjdoanccxiflxsq'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
-mail = Mail(app)
+# app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+# app.config['MAIL_PORT'] = 465
+# app.config['MAIL_USERNAME'] = 'sule.devashish@gmail.com'
+# app.config['MAIL_PASSWORD'] = 'pkjdoanccxiflxsq'
+# app.config['MAIL_USE_TLS'] = False
+# app.config['MAIL_USE_SSL'] = True
+# mail = Mail(app)
 
 client = MongoClient("mongodb+srv://Devashish:Devashish2002@cluster0.wurmd5z.mongodb.net/?retryWrites=true&w=majority")
 db = client.BookFlix_db
@@ -40,14 +40,14 @@ def register():
                 'password':password1,
                 'security_question':security_question
             })
-            msg = Message(
-                "BookFlix - Acknowledgement letter (Notification)",
-                sender='joemama@hotline.com',
-                recipients=[email]
-            )
-            msg.body = "Thank You for creating an account in BookFlix. We will keep you updated."
-            mail.send(msg)
-            return render_template('verified.html')
+            # msg = Message(
+            #     "BookFlix - Acknowledgement letter (Notification)",
+            #     sender='joemama@hotline.com',
+            #     recipients=[email]
+            # )
+            # msg.body = "Thank You for creating an account in BookFlix. We will keep you updated."
+            # mail.send(msg)
+            # return render_template('verified.html')
         else:
             return render_template('register.html')
             
@@ -65,14 +65,14 @@ def login():
         })
         if verify_user != None:
             # Response.setCookie('test',6969,10) 
-            return redirect('/user_dashboard.html')
+            return redirect('./users/user_dashboard.html')
         else:
             return "Still in development..."
     return render_template('login.html')
 
 @app.route('/user_dashboard.html', methods=('GET', 'POST'))
 def user_dashboard():
-    return render_template('user_dashboard.html')
+    return render_template('./users/user_dashboard.html')
     # print('Hello') 
     
 if __name__ == "__main__":
