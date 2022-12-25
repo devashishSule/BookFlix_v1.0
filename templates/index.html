@@ -1,13 +1,15 @@
 {% extends 'base.html' %} {% block head%}
 <title>BookFlix</title>
 {% endblock %} {% block body %}
-<h1>Welcome...</h1><br>
+<div class="bodySpacing">
+    <h1><b>Welcome</b></h1><br>
+    <a href="./register.html" class="button button_index">
+        <h2>Register</h2>
+    </a>
 
-<a href="./register.html" class="button button_index">
-    <h2>Register</h2>
-</a>
+    <a href="./login.html" class="button button_index">
+        <h2>Login</h2>
+    </a>
+</div>
 
-<a href="./login.html" class="button button_index">
-    <h2>Login</h2>
-</a>
 {% endblock %}
