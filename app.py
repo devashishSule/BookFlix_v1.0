@@ -21,7 +21,7 @@ def index():
     return render_template('index.html')
      
 
-@app.route('/register.html', methods=('GET', 'POST'))
+@app.route('/Actions/register.html', methods=('GET', 'POST'))
 def register():
     if request.method=='POST':
         firstName = request.form['content1']
@@ -49,26 +49,26 @@ def register():
             # mail.send(msg)
             return render_template('verified.html')
         else:
-            return render_template('register.html')
+            return render_template('/Actions/register.html')
             
     all_info = user_info.find()
-    return render_template('register.html', user_info=all_info)
+    return render_template('/Actions/register.html', user_info=all_info)
 
-@app.route('/login.html', methods=('GET', 'POST') )
+@app.route('/Actions/login.html', methods=('GET', 'POST') )
 def login():
     if request.method=="POST":
         username = request.form['username']
         password = request.form['password']
-        verify_user = db.user_info.find_one({
+        verify_user = db.user_info.find_one({},{
             'username':username,
             'password':password
         })
-        if verify_user != None:
+        if verify_user == None:
             # Response.setCookie('test',6969,10) 
-            return redirect('/user_dashboard.html')
+            return 'Wrong Password or username...'
         else:
-            return "Still in development..."
-    return render_template('login.html')
+            return redirect('/user_dashboard.html')
+    return render_template('Actions/login.html')
 
 @app.route('/user_dashboard.html', methods=('GET', 'POST'))
 def user_dashboard():

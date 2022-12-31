@@ -1,15 +1,19 @@
 {% extends 'base.html' %} {% block head%}
 <title>BookFlix</title>
 {% endblock %} {% block body %}
-<div class="bodySpacing">
-    <h1><b>Welcome</b></h1><br>
-    <a href="./register.html" class="button button_index">
-        <h2>Register</h2>
-    </a>
+<div class="indexBody">
+    <div class="wrapper">
+        <div class="static-text">Welcome</div>
+        <ul class="dynamic-text">
+            <li><span>Friend.</span></li>
+            <li><span>Student.</span></li>
+            <li><span>Teacher.</span></li>
+            <li><span>Learner.</span></li>
 
-    <a href="./login.html" class="button button_index">
-        <h2>Login</h2>
-    </a>
+        </ul>
+    </div>
+    <div class="content-index">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore amet error ut quam aliquid explicabo inventore consequatur ad omnis harum voluptates at, ullam, delectus saepe doloribus quos mollitia soluta quod.
+    </div>
 </div>
-
 {% endblock %}
